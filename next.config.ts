@@ -5,9 +5,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-/*Netlify settings*/
-module.exports = {
-  // other exports
-  target: 'serverless', // add this line
-};
