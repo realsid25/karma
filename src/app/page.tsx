@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 import Lenis from 'lenis';
 import React, { useEffect } from 'react';
@@ -6,7 +5,7 @@ import React, { useEffect } from 'react';
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
-    function raf(time: any) {
+    function raf(time: number) { // Corrected type
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
