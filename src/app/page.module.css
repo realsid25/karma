@@ -1,0 +1,159 @@
+/* In your :root or a global stylesheet, define the variables: */
+/* app/page.module.css */
+
+/* --- General Styles --- */
+.wrapper {
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scrollbar caused by the marquee */
+}
+
+/* --- Header Styles --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(31, 41, 55, 0.8); /* Adjust as needed */
+  color: #f3f4f6;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between logo and text */
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  /* Add styles for your logo (image or text) */
+}
+
+.logoText {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav {
+  display: flex; /* Keep flex for larger screens */
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navList a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navList a:hover {
+  color: #a78bfa; /* Example hover color */
+}
+
+.mobileMenuButton {
+  display: none; /* Hide by default (for larger screens) */
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* --- Mobile Styles (using media query) --- */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  .nav {
+    display: none; /* Hide the regular nav on mobile */
+    position: fixed;
+    top: 60px;  /* Adjust as needed to be below the header*/
+    left: 0;
+    width: 100%;
+    background-color: rgba(31, 41, 55, 0.9); /* Adjust as needed */
+     /* Adjust as needed */
+    padding: 1rem;
+
+  }
+
+  .mobileNavOpen {
+    display: block; /* Show the nav when the menu is open */
+  }
+
+  .navList {
+    flex-direction: column; /* Stack the links vertically */
+    align-items: center; /* Center the links */
+    gap: 1rem;
+  }
+
+  .mobileMenuButton {
+    display: block; /* Show the button on mobile */
+  }
+}
+
+
+/* --- Marquee Styles (keep these unchanged) --- */
+
+.marqueeWrapper {
+  position: relative;
+  width: 110%;
+  left: -5%;
+}
+
+.marqueeContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  border-top: 1px solid #a78bfa;  /* Light purple border */
+  border-bottom: 1px solid #a78bfa; /* Light purple border */
+  background-color: #1f2937; /* Dark grayish blue background */
+  padding-top: 2.5rem; /* py-10 */
+  padding-bottom: 2.5rem;
+  transform: rotate(-5deg);
+  z-index: 200;
+}
+
+.trackHorizontal {
+  animation: marquee 40s linear infinite; /* Corrected animation duration */
+  display: flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.marqueeItem {
+    display: inline-flex;
+    align-items: center;
+}
+
+.marqueeText {
+  text-transform: uppercase;
+  color: #f3f4f6;  /* Light gray text */
+  margin-left: 8vw;
+  margin-right: 8vw;
+    flex-shrink: 0;
+  font-size: 2.25rem; /* text-4xl is usually 2.25rem (36px) */
+  line-height: 2.5rem;
+  font-weight: bold;
+}
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
