@@ -1,7 +1,8 @@
-// components/Header.tsx
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header: React.FC = () => {
     <header className="sticky top-0 flex justify-between items-center p-4 md:bg-transparent bg-[#0e002d]">
       {/* Logo (Left) */}
       <div className="flex-1">
-        <img src="/images/logo.svg" alt="Logo" className="h-12" />
+        <Image src="/images/logo.svg" alt="Logo" width={48} height={48} />
       </div>
 
       {/* Company Name (Center) */}
@@ -24,9 +25,9 @@ const Header: React.FC = () => {
 
       {/* Menu Items (Right - PC) */}
       <nav className="flex-1 hidden lg:flex justify-end items-center">
-        <a href="/" className="mx-4 text-white">Home</a>
-        <a href="/about" className="mx-4 text-white">About</a>
-        <a href="/contact" className="mx-4 text-white">Contact</a>
+        <Link href="/" className="mx-4 text-white">Home</Link>
+        <Link href="/about" className="mx-4 text-white">About</Link>
+        <Link href="/contact" className="mx-4 text-white">Contact</Link>
         <button className='bg-white text-black px-3 py-1.5 rounded-lg font-medium inline-flex align-center justify-center tracking-tight'>Enroll Now</button>
       </nav>
 
@@ -50,15 +51,15 @@ const Header: React.FC = () => {
           <div className="clear-both"></div>
         </div>
         <div className="flex flex-col items-center justify-center h-full">
-          <a href="/" className="block my-4 text-lg text-white">
+          <Link href="/" className="block my-4 text-lg text-white">
             Home
-          </a>
-          <a href="/about" className="block my-4 text-lg text-white">
+          </Link>
+          <Link href="/about" className="block my-4 text-lg text-white">
             About
-          </a>
-          <a href="/contact" className="block my-4 text-lg text-white">
+          </Link>
+          <Link href="/contact" className="block my-4 text-lg text-white">
             Contact
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
